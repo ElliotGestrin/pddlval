@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pddlval"
+version = "0.1.0"
+description = "A minimal wrapper around the VAL PDDL validator."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "GPL-3.0"}
+authors = [
+    {name = "Elliot Gestrin", email = "elliot.gestrin@liu.se"}
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS",
+    "Operating System :: Microsoft :: Windows",
+]
+keywords = ["pddl", "planning", "validation", "val"]
+
+[project.urls]
+Homepage = "https://github.com/ElliotGestrin/pddlval"
+Repository = "https://github.com/ElliotGestrin/pddlval"
+Issues = "https://github.com/ElliotGestrin/pddlval/issues"
+
+[tool.setuptools]
+packages = ["pddlval"]
+
+[tool.setuptools.package-data]
+pddlval = [
+    "binaries/linux/*",
+    "binaries/macos/*",
+    "binaries/windows/*",
+]

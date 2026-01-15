@@ -1,0 +1,2 @@
+(turn-on l2 l1)
+(turn-on l3 l2)
