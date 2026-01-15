@@ -11,7 +11,7 @@ Only those errors caught by VAL will be reported. Validating domains and problem
 The functions provided are:
 - `validate_domain(domain: str) -> bool`
 - `validate_problem(domain: str, problem: str) -> bool`
-- `validate(domain: str, problem: str, plan: str) -> bool`
+- `validate_plan(domain: str, problem: str, plan: str) -> bool`
 - `validate(domain: str, problem: str | None = None, plan: str | None = None) -> bool`
 
 Where `domain`, `problem`, and `plan` are paths to the respective files or strings containing their contents. `validate` will determine which validation to perform based on the provided arguments.
