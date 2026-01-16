@@ -72,9 +72,21 @@ def validate_plan(domain: str, problem: str, plan: str) -> bool:
                                 stdout=subprocess.PIPE,
                                 stderr=subprocess.PIPE,
                                 text=True)
-        if result.returncode == 0:
+        # Check the output for success/failure indicators
+        output = result.stdout + result.stderr
+        
+        # VAL returns 0 even with errors, so we need to check the output
+        # Look for success indicator
+        if "Plan valid" in output:
             return True
+        # Look for error indicators
+        elif any(indicator in output for indicator in ["Error:", "Bad plan description!", "Failed plans:", "Bad operator in plan!"]):
+            return False
+        # If return code is non-zero, it's definitely a failure
+        elif result.returncode != 0:
+            return False
         else:
+            # Default to False if we can't determine validity
             return False
     finally:
         if is_temp_domain:
